@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection & Color Change</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="loadingScreen">
+        <h1 id="loadingText">HueSight</h1>
+    </div>
+    <div id="mainContent" style="display: none;">
+        <h1>Upload an Image for Object Detection</h1>
+        <input type="file" id="imageUpload">
+        <canvas id="canvas"></canvas>
+        <h2>Select Object to Modify</h2>
+        <select id="objectSelector">
+            <option value="" disabled selected>Select an object</option>
+        </select>
+        <h2>Select Target Color</h2>
+        <input type="color" id="targetColorPicker" value="#ffffff">
+        <h2>Change Target Color To</h2>
+        <input type="color" id="newColorPicker" value="#ff0000">
+        <button id="applyColor">Apply Color</button>
+        <h2>Additional Tools</h2>
+        <a href="colorBlindnessTest.html" style="text-decoration: none; color: #007BFF; font-size: 18px;">Take the Advanced Color Blindness Test</a>
+        <br>
+        <a href="ishiharaTest.html" style="text-decoration: none; color: #007BFF; font-size: 18px;">Take the Ishihara Color Blindness Test</a>
+    </div>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script defer src="script.js"></script>
+    <script>
+        // Show the loading screen and transition to the main content
+        document.addEventListener("DOMContentLoaded", () => {
+            const loadingScreen = document.getElementById("loadingScreen");
+            const mainContent = document.getElementById("mainContent");
+
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+                mainContent.style.display = "block";
+            }, 5000); // Adjust the duration to match the animation
+        });
+    </script>
+</body>
+</html>

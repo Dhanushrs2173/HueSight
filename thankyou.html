@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You</title>
+
+    <link rel="stylesheet" href="thankyou.css">
+
+</head>
+
+<body>
+
+<form action="index.html" method="post">
+
+    <div class="thankyou-container">
+
+        <h2>Thank You for Your Responses!</h2>
+
+        <div class="response">
+
+            <p>1. Orange- <span id="answer1"></span></p>
+
+        </div>
+
+        <div class="response">
+
+            <p>2. Green: <span id="answer2"></span></p>
+
+        </div>
+
+        <div class="response">
+
+            <p>3. Black: <span id="answer3"></span></p>
+
+        </div>
+
+        <div class="response">
+
+            <p>4. Yellow <span id="answer4"></span></p>
+
+        </div>
+
+        <div class="response">
+
+            <p>5. Red: <span id="answer5"></span></p>
+
+        </div>
+
+        <div class="response">
+
+            <p>6. Blue: <span id="answer6"></span></p>
+
+        </div>
+
+        <button type="submit" id="next" value="submit">Next</button>
+
+        </div>
+
+    </div>
+
+    </form>
+
+
+    <script>
+
+        // Function to get the query parameters from the URL
+
+        function getQueryParams() {
+
+            const params = new URLSearchParams(window.location.search);
+
+            return {
+
+                question1: params.get("question1"),
+
+                question2: params.get("question2"),
+
+                question3: params.get("question3"),
+
+                question4: params.get("question4"),
+
+                question5: params.get("question5"),
+
+                question6: params.get("question6")
+
+            };
+
+        }
+
+
+        // Display the responses
+
+        const responses = getQueryParams();
+
+        document.getElementById("answer1").textContent = responses.question1 || "No response";
+
+        document.getElementById("answer2").textContent = responses.question2 || "No response";
+
+        document.getElementById("answer3").textContent = responses.question3 || "No response";
+
+        document.getElementById("answer4").textContent = responses.question1 || "No response";
+
+        document.getElementById("answer5").textContent = responses.question2 || "No response";
+
+        document.getElementById("answer6").textContent = responses.question3 || "No response";
+
+    </script>
+
+
+
+
+</body>
+
+</html>

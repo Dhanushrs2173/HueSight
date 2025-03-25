@@ -1,0 +1,46 @@
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.survey-container {
+    animation: fadeIn 1.5s ease-in-out;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.question {
+    animation: slideIn 1s ease-in-out;
+    margin: 20px 0;
+}
+
+.submit-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+    background-color: #218838;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

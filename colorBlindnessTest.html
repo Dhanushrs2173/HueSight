@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Color Blindness Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .test-container {
+            margin-top: 20px;
+        }
+        .image-container {
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Advanced Color Blindness Test</h2>
+    <div class="test-container" id="test-container">
+        <div class="image-container">
+            <img id="test-image" src="" alt="Color Blindness Test Image" width="300">
+        </div>
+        <input type="text" id="user-input" placeholder="Enter the number you see">
+        <button onclick="nextQuestion()">Submit</button>
+    </div>
+    <div id="result" class="hidden">
+        <h3>Your Result:</h3>
+        <p id="diagnosis"></p>
+        <button onclick="restartTest()">Retake Test</button>
+    </div>
+    
+    <script>
+        const testData = [
+            { image: "ishihara1.jpg", correct: "12", type: "Normal Vision" },
+            { image: "ishihara2.jpg", correct: "8", type: "Deuteranopia (Red-Green)" },
+            { image: "ishihara3.jpg", correct: "6", type: "Protanopia (Red-Green)" },
+            { image: "ishihara4.jpg", correct: "45", type: "Tritanopia (Blue-Yellow)" },
+            { image: "ishihara5.jpg", correct: "5", type: "Severe Color Blindness" }
+        ];
+        
+        let currentIndex = 0;
+        let userResults = [];
+        
+        function loadQuestion() {
+            if (currentIndex < testData.length) {
+                document.getElementById("test-image").src = testData[currentIndex].image;
+            } else {
+                evaluateResult();
+            }
+        }
+        
+        function nextQuestion() {
+            let userInput = document.getElementById("user-input").value.trim();
+            userResults.push({
+                response: userInput,
+                expected: testData[currentIndex].correct,
+                type: testData[currentIndex].type
+            });
+            
+            currentIndex++;
+            document.getElementById("user-input").value = "";
+            loadQuestion();
+        }
+        
+        function evaluateResult() {
+            let diagnosis = "Normal Vision";
+            let typeCounts = {};
+            userResults.forEach(q => {
+                if (q.response !== q.expected) {
+                    typeCounts[q.type] = (typeCounts[q.type] || 0) + 1;
+                }
+            });
+            
+            if (Object.keys(typeCounts).length > 0) {
+                diagnosis = Object.keys(typeCounts).reduce((a, b) => typeCounts[a] > typeCounts[b] ? a : b);
+            }
+            
+            document.getElementById("test-container").classList.add("hidden");
+            document.getElementById("result").classList.remove("hidden");
+            document.getElementById("diagnosis").innerText = diagnosis;
+        }
+        
+        function restartTest() {
+            currentIndex = 0;
+            userResults = [];
+            document.getElementById("test-container").classList.remove("hidden");
+            document.getElementById("result").classList.add("hidden");
+            loadQuestion();
+        }
+        
+        loadQuestion();
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishihara Color Blindness Test</title>
+    <link rel="stylesheet" href="ishiharaTest.css">
+</head>
+<body>
+    <h1>Ishihara Color Blindness Test</h1>
+    <div class="test-container" id="test-container">
+        <div class="image-container">
+            <img id="test-image" src="" alt="Ishihara Test Image" width="300">
+        </div>
+        <input type="text" id="user-input" placeholder="Enter the number you see">
+        <button id="submit-button">Submit</button>
+    </div>
+    <div id="result" class="hidden">
+        <h2>Your Result:</h2>
+        <p id="diagnosis"></p>
+        <button id="restart-button">Retake Test</button>
+    </div>
+    <script defer src="ishiharaTest.js"></script>
+</body>
+</html>

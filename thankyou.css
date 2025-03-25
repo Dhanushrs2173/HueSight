@@ -1,0 +1,45 @@
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.thankyou-container {
+    animation: fadeIn 1.5s ease-in-out;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.response {
+    animation: slideIn 1s ease-in-out;
+    margin: 10px 0;
+}
+
+button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
