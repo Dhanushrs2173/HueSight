@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object Detection & Color Change</title>
+    <title>HueSight</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -11,22 +11,57 @@
         <h1 id="loadingText">HueSight</h1>
     </div>
     <div id="mainContent" style="display: none;">
-        <h1>Upload an Image for Object Detection</h1>
-        <input type="file" id="imageUpload">
-        <canvas id="canvas"></canvas>
-        <h2>Select Object to Modify</h2>
-        <select id="objectSelector">
-            <option value="" disabled selected>Select an object</option>
-        </select>
-        <h2>Select Target Color</h2>
-        <input type="color" id="targetColorPicker" value="#ffffff">
-        <h2>Change Target Color To</h2>
-        <input type="color" id="newColorPicker" value="#ff0000">
-        <button id="applyColor">Apply Color</button>
-        <h2>Additional Tools</h2>
-        <a href="colorBlindnessTest.html" style="text-decoration: none; color: #007BFF; font-size: 18px;">Take the Advanced Color Blindness Test</a>
-        <br>
-        <a href="ishiharaTest.html" style="text-decoration: none; color: #007BFF; font-size: 18px;">Take the Ishihara Color Blindness Test</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="survey.html">Survey</a></li>
+                <li><a href="ishiharaTest.html">Ishihara Test</a></li>
+            </ul>
+        </nav>
+        <div class="theme-selection">
+            <label for="themeSelector">Select Theme:</label>
+            <select id="themeSelector">
+                <option value="default">Default</option>
+                <option value="protanopia">Protanopia (Red-Blind)</option>
+                <option value="deuteranopia">Deuteranopia (Green-Blind)</option>
+                <option value="tritanopia">Tritanopia (Blue-Yellow Blind)</option>
+                <option value="achromatopsia">Achromatopsia (Total Color Blindness)</option>
+            </select>
+        </div>
+        <div class="content">
+            <div id="leftPanel">
+                <h1>Upload or Capture an Image</h1>
+                <input type="file" id="imageUpload">
+                <div id="cameraContainer">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <button id="captureButton">Capture from Camera</button>
+                <button id="downloadButton">Download Image</button>
+                <button id="simulateProtanopiaButton">Simulate Protanopia</button>
+                <button id="simulateDeuteranopiaButton">Simulate Deuteranopia</button>
+                <button id="simulateTritanopiaButton">Simulate Tritanopia</button>
+                <button id="simulateAchromatopsiaButton">Simulate Achromatopsia</button>
+                <button id="resetButton">Reset</button>
+            </div>
+            <div id="rightPanel">
+                <h2>Select Object to Modify</h2>
+                <select id="objectSelector">
+                    <option value="" disabled selected>Select an object</option>
+                </select>
+                <div class="color-selection">
+                    <h2>Choose Color</h2>
+                    <input type="color" id="targetColorPicker">
+                    <h2>Change to</h2>
+                    <input type="color" id="newColorPicker">
+                    <button id="applyColor">Apply Color</button>
+                </div>
+                <h2>Additional Tools</h2>
+                <a href="colorBlindnessTest.html">Advanced Color Blindness Test</a>
+                <br>
+                <a href="ishiharaTest.html">Ishihara Color Blindness Test</a>
+            </div>
+        </div>
     </div>
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>

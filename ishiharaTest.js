@@ -1,9 +1,16 @@
 const testData = [
-    { image: "images/ishihara1.jpg", correct: "12", type: "Normal Vision" },
-    { image: "images/ishihara2.jpg", correct: "8", type: "Deuteranopia (Red-Green)" },
-    { image: "images/ishihara3.jpg", correct: "6", type: "Protanopia (Red-Green)" },
-    { image: "images/ishihara4.jpg", correct: "45", type: "Tritanopia (Blue-Yellow)" },
-    { image: "images/ishihara5.jpg", correct: "5", type: "Severe Color Blindness" }
+    { image: "IshiharaTestImages/Ishihara_01.jpg", correct: "12", type: "Normal Vision" },
+    { image: "IshiharaTestImages/Ishihara_02.jpg", correct: "8", type: "Deuteranopia (Red-Green)" },
+    { image: "IshiharaTestImages/Ishihara_03.jpg", correct: "6", type: "Protanopia (Red-Green)" },
+    { image: "IshiharaTestImages/Ishihara_04.jpg", correct: "45", type: "Tritanopia (Blue-Yellow)" },
+    { image: "IshiharaTestImages/Ishihara_05.jpg", correct: "5", type: "Severe Color Blindness" },
+    { image: "IshiharaTestImages/Ishihara_06.jpg", correct: "2", type: "Normal Vision" },
+    { image: "IshiharaTestImages/Ishihara_07.jpg", correct: "29", type: "Deuteranopia (Red-Green)" },
+    { image: "IshiharaTestImages/Ishihara_08.jpg", correct: "74", type: "Protanopia (Red-Green)" },
+    { image: "IshiharaTestImages/Ishihara_09.jpg", correct: "5", type: "Tritanopia (Blue-Yellow)" },
+    { image: "IshiharaTestImages/Ishihara_10.jpg", correct: "45", type: "Severe Color Blindness" },
+    { image: "IshiharaTestImages/Ishihara_11.jpg", correct: "7", type: "Normal Vision" },
+    { image: "IshiharaTestImages/Ishihara_12.jpg", correct: "16", type: "Deuteranopia (Red-Green)" }
 ];
 
 let currentIndex = 0;
